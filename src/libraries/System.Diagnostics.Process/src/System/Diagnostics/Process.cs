@@ -260,7 +260,7 @@ namespace System.Diagnostics
         /// <summary>
         /// Gets or sets the maximum allowable working set for the associated process.
         /// </summary>
-        /// <remarks>On macOS and FreeBSD, setting the value works only for the current process.</remarks>
+        /// <remarks>On macOS and the BSDs, setting the value works only for the current process.</remarks>
         public IntPtr MaxWorkingSet
         {
             [UnsupportedOSPlatform("ios")]
@@ -272,6 +272,7 @@ namespace System.Diagnostics
                 return _maxWorkingSet;
             }
             [SupportedOSPlatform("freebsd")]
+	    [SupportedOSPlatform("netsd")]
             [SupportedOSPlatform("macos")]
             [SupportedOSPlatform("maccatalyst")]
             [SupportedOSPlatform("windows")]
@@ -284,7 +285,7 @@ namespace System.Diagnostics
         /// <summary>
         /// Gets or sets the minimum allowable working set for the associated process.
         /// </summary>
-        /// <remarks>On macOS and FreeBSD, setting the value works only for the current process.</remarks>
+        /// <remarks>On macOS and the BSDs, setting the value works only for the current process.</remarks>
         public IntPtr MinWorkingSet
         {
             [UnsupportedOSPlatform("ios")]
@@ -296,6 +297,7 @@ namespace System.Diagnostics
                 return _minWorkingSet;
             }
             [SupportedOSPlatform("freebsd")]
+	    [SupportedOSPlatform("netbsd")]
             [SupportedOSPlatform("macos")]
             [SupportedOSPlatform("maccatalyst")]
             [SupportedOSPlatform("windows")]
