@@ -138,6 +138,22 @@ namespace System
 #endif
 
         /// <summary>
+        /// Indicates whether the current application is running on NetBSD.
+        /// </summary>
+        public static bool IsNetBSD() =>
+#if TARGET_NETBSD
+            true;
+#else
+            false;
+#endif
+
+        /// <summary>
+        /// Check for the NetBSD version (returned by 'uname') with a >= version comparison. Used to guard APIs that were added in the given NetBSD release.
+        /// </summary>
+        public static bool IsNetBSDVersionAtLeast(int major, int minor = 0, int build = 0, int revision = 0)
+            => IsNetBSD() && IsOSVersionAtLeast(major, minor, build, revision);
+
+        /// <summary>
         /// Indicates whether the current application is running on FreeBSD.
         /// </summary>
         public static bool IsFreeBSD() =>

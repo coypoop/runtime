@@ -186,6 +186,8 @@ initDistroRidGlobal()
                 distroRid="browser-$buildArch"
             elif [ "$targetOs" = "FreeBSD" ]; then
                 distroRid="freebsd-$buildArch"
+            elif [ "$targetOs" = "NetBSD" ]; then
+                distroRid="netbsd-$buildArch"
             elif [ "$targetOs" = "illumos" ]; then
                 distroRid="illumos-$buildArch"
             elif [ "$targetOs" = "Solaris" ]; then

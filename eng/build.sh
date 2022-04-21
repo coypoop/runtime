@@ -28,7 +28,7 @@ usage()
   echo "  --help (-h)                     Print help and exit."
   echo "  --librariesConfiguration (-lc)  Libraries build configuration: Debug or Release."
   echo "                                  [Default: Debug]"
-  echo "  --os                            Target operating system: windows, Linux, FreeBSD, OSX, MacCatalyst, tvOS,"
+  echo "  --os                            Target operating system: windows, Linux, FreeBSD, NetBSD, OSX, MacCatalyst, tvOS,"
   echo "                                  tvOSSimulator, iOS, iOSSimulator, Android, Browser, NetBSD, illumos or Solaris."
   echo "                                  [Default: Your machine's OS.]"
   echo "  --projects <value>              Project or solution file(s) to build."
@@ -261,6 +261,8 @@ while [[ $# > 0 ]]; do
           os="Linux" ;;
         freebsd)
           os="FreeBSD" ;;
+        netbsd)
+          os="NetBSD" ;;
         osx)
           os="OSX" ;;
         maccatalyst)
@@ -283,7 +285,7 @@ while [[ $# > 0 ]]; do
           os="Solaris" ;;
         *)
           echo "Unsupported target OS '$2'."
-          echo "The allowed values are windows, Linux, FreeBSD, OSX, MacCatalyst, tvOS, tvOSSimulator, iOS, iOSSimulator, Android, Browser, illumos and Solaris."
+          echo "The allowed values are windows, Linux, FreeBSD, NetBSD, OSX, MacCatalyst, tvOS, tvOSSimulator, iOS, iOSSimulator, Android, Browser, illumos and Solaris."
           exit 1
           ;;
       esac

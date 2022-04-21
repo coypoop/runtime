@@ -39,7 +39,7 @@ bool VMToOSInterface::CreateDoubleMemoryMapper(void** pHandle, size_t *pMaxExecu
 {
 #ifndef TARGET_OSX
 
-#ifdef TARGET_FREEBSD
+#if defined(TARGET_FREEBSD) || defined(TARGET_NETBSD)
     int fd = shm_open(SHM_ANON, O_RDWR | O_CREAT, S_IRWXU);
 #elif defined(TARGET_SUNOS) // has POSIX implementation
     char name[24];

@@ -63,7 +63,7 @@ endif()
 # For clang-5.0 avoid errors like "unused variable 'err' [-Werror,-Wunused-variable]".
 set(CMAKE_REQUIRED_FLAGS "${CMAKE_REQUIRED_FLAGS} -Werror -Wno-error=unused-value -Wno-error=unused-variable")
 if (CMAKE_C_COMPILER_ID STREQUAL "Clang")
-    set(CMAKE_REQUIRED_FLAGS "${CMAKE_REQUIRED_FLAGS} -Wno-error=builtin-requires-header")
+    set(CMAKE_REQUIRED_FLAGS "${CMAKE_REQUIRED_FLAGS} -Wno-error=builtin-requires-header -Wno-error=unused-command-line-argument")
 endif()
 
 # Apple platforms like macOS/iOS allow targeting older operating system versions with a single SDK,

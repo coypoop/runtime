@@ -11,6 +11,8 @@
     <PublishReadyToRun Condition="'$(TargetOS)'=='NetBSD' Or '$(TargetOS)'=='illumos' Or '$(TargetOS)'=='Solaris'">false</PublishReadyToRun>
     <!-- Disable crossgen on FreeBSD when cross building from Linux. -->
     <PublishReadyToRun Condition="'$(TargetOS)'=='FreeBSD' and '$(CrossBuild)'=='true'">false</PublishReadyToRun>
+    <!-- Disable crossgen on NetBSD when cross building from Linux. -->
+    <PublishReadyToRun Condition="'$(TargetOS)'=='NetBSD' and '$(CrossBuild)'=='true'">false</PublishReadyToRun>
     <!-- These components are installed by the root shared framework, but not others. -->
     <IncludeWerRelatedKeys>true</IncludeWerRelatedKeys>
     <IncludeBreadcrumbStoreFolder>true</IncludeBreadcrumbStoreFolder>

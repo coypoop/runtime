@@ -2,7 +2,7 @@
   <PropertyGroup>
     <DefineConstants>$(DefineConstants);FEATURE_REGISTRY</DefineConstants>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <TargetFrameworks>$(NetCoreAppCurrent)-windows;$(NetCoreAppCurrent)-FreeBSD;$(NetCoreAppCurrent)-Linux;$(NetCoreAppCurrent)-OSX;$(NetCoreAppCurrent)-MacCatalyst;$(NetCoreAppCurrent)-iOS;$(NetCoreAppCurrent)-tvOS;$(NetCoreAppCurrent)</TargetFrameworks>
+    <TargetFrameworks>$(NetCoreAppCurrent)-windows;$(NetCoreAppCurrent)-FreeBSD;$(NetCoreAppCurrent)-NetBSD;$(NetCoreAppCurrent)-Linux;$(NetCoreAppCurrent)-OSX;$(NetCoreAppCurrent)-MacCatalyst;$(NetCoreAppCurrent)-iOS;$(NetCoreAppCurrent)-tvOS;$(NetCoreAppCurrent)</TargetFrameworks>
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <!-- DesignTimeBuild requires all the TargetFramework Derived Properties to not be present in the first property group. -->
@@ -340,6 +340,19 @@
              Link="Common\Interop\FreeBSD\Interop.Process.cs" />
     <Compile Include="$(CommonPath)Interop\FreeBSD\Interop.Process.GetProcInfo.cs"
              Link="Common\Interop\FreeBSD\Interop.Process.GetProcInfo.cs" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetPlatformIdentifier)' == 'NetBSD'">
+    <Compile Include="System\Diagnostics\Process.BSD.cs" />
+    <Compile Include="System\Diagnostics\Process.NetBSD.cs" />
+    <Compile Include="System\Diagnostics\ProcessManager.BSD.cs" />
+    <Compile Include="System\Diagnostics\ProcessManager.NetBSD.cs" />
+    <Compile Include="System\Diagnostics\ProcessThread.NetBSD.cs" />
+    <Compile Include="$(CommonPath)Interop\BSD\System.Native\Interop.Sysctl.cs"
+             Link="Common\Interop\BSD\System.Native\Interop.Sysctl.cs" />
+    <Compile Include="$(CommonPath)Interop\NetBSD\Interop.Process.cs"
+             Link="Common\Interop\NetBSD\Interop.Process.cs" />
+    <Compile Include="$(CommonPath)Interop\NetBSD\Interop.Process.GetProcInfo.cs"
+             Link="Common\Interop\NetBSD\Interop.Process.GetProcInfo.cs" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetPlatformIdentifier)' == 'iOS' or '$(TargetPlatformIdentifier)' == 'tvOS'">
     <Compile Include="System\Diagnostics\Process.iOS.cs" />

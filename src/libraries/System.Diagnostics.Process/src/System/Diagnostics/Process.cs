@@ -272,7 +272,7 @@ namespace System.Diagnostics
                 return _maxWorkingSet;
             }
             [SupportedOSPlatform("freebsd")]
-	    [SupportedOSPlatform("netsd")]
+            [SupportedOSPlatform("netbsd")]
             [SupportedOSPlatform("macos")]
             [SupportedOSPlatform("maccatalyst")]
             [SupportedOSPlatform("windows")]
@@ -297,7 +297,7 @@ namespace System.Diagnostics
                 return _minWorkingSet;
             }
             [SupportedOSPlatform("freebsd")]
-	    [SupportedOSPlatform("netbsd")]
+            [SupportedOSPlatform("netbsd")]
             [SupportedOSPlatform("macos")]
             [SupportedOSPlatform("maccatalyst")]
             [SupportedOSPlatform("windows")]

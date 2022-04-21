@@ -38,6 +38,7 @@
     <DefineConstants Condition="'$(TargetsAndroid)' == 'true'">$(DefineConstants);TARGET_ANDROID</DefineConstants>
     <DefineConstants Condition="'$(TargetsLinux)' == 'true'">$(DefineConstants);TARGET_LINUX</DefineConstants>
     <DefineConstants Condition="'$(TargetsFreeBSD)' == 'true'">$(DefineConstants);TARGET_FREEBSD</DefineConstants>
+    <DefineConstants Condition="'$(TargetsNetBSD)' == 'true'">$(DefineConstants);TARGET_NETBSD</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
     <ILLinkSubstitutionsXmls Include="$(ILLinkSharedDirectory)ILLink.Substitutions.Shared.xml" />
@@ -2218,12 +2219,15 @@
     <Compile Include="$(CommonPath)Interop\Unix\System.Native\Interop.PosixSignal.cs" Link="Common\Interop\Unix\Interop.PosixSignal.cs" />
     <Compile Include="$(CommonPath)Interop\FreeBSD\Interop.Process.GetProcInfo.cs" Condition="'$(TargetsFreeBSD)' == 'true'" Link="Common\Interop\FreeBSD\Interop.Process.GetProcInfo.cs" />
     <Compile Include="$(CommonPath)Interop\BSD\System.Native\Interop.Sysctl.cs" Condition="'$(TargetsFreeBSD)' == 'true'" Link="Common\Interop\BSD\System.Native\Interop.Sysctl.cs" />
+    <Compile Include="$(CommonPath)Interop\NetBSD\Interop.Process.GetProcInfo.cs" Condition="'$(TargetsNetBSD)' == 'true'" Link="Common\Interop\NetBSD\Interop.Process.GetProcInfo.cs" />
+    <Compile Include="$(CommonPath)Interop\BSD\System.Native\Interop.Sysctl.cs" Condition="'$(TargetsNetBSD)' == 'true'" Link="Common\Interop\BSD\System.Native\Interop.Sysctl.cs" />
     <Compile Include="$(CommonPath)Interop\Linux\procfs\Interop.ProcFsStat.TryReadStatusFile.cs" Condition="'$(TargetsLinux)' == 'true'" Link="Common\Interop\Linux\Interop.ProcFsStat.TryReadStatusFile.cs" />
     <Compile Include="$(CommonPath)System\IO\StringParser.cs" Condition="'$(TargetsLinux)' == 'true'" Link="Common\System\IO\StringParser.cs" />
     <Compile Include="$(CommonPath)Interop\OSX\Interop.libproc.GetProcessInfoById.cs" Condition="'$(TargetsOSX)' == 'true' or '$(TargetsMacCatalyst)' == 'true'" Link="Common\Interop\OSX\Interop.libproc.GetProcessInfoById.cs" />
     <Compile Include="$(CommonPath)Interop\SunOS\procfs\Interop.ProcFsStat.TryReadProcessStatusInfo.cs" Condition="'$(Targetsillumos)' == 'true' or '$(TargetsSolaris)' == 'true'" Link="Common\Interop\SunOS\Interop.ProcFsStat.TryReadProcessStatusInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Environment.Unix.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Environment.FreeBSD.cs" Condition="'$(TargetsFreeBSD)' == 'true'" />
+    <Compile Include="$(MSBuildThisFileDirectory)System\Environment.NetBSD.cs" Condition="'$(TargetsNetBSD)' == 'true'" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Environment.Linux.cs" Condition="'$(TargetsLinux)' == 'true'" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Environment.OSX.cs" Condition="'$(TargetsOSX)' == 'true' or '$(TargetsMacCatalyst)' == 'true'" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Environment.iOS.cs" Condition="'$(TargetsiOS)' == 'true' or '$(TargetstvOS)' == 'true'" />
